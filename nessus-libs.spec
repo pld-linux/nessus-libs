@@ -3,7 +3,7 @@
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	1.2.5
+Version:	2.0.0
 Release:	1
 License:	GPL
 Group:		Networking
@@ -60,7 +60,9 @@ Biblioteki statyczne Nessusa.
 %configure \
 	--disable-nessuspcap \
 	--enable-cipher \
-	--enable-openpty
+	--enable-openpty \
+	--enable-bpf-sharing
+
 %{__make}
 
 %install
@@ -77,12 +79,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/lib*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
+#%attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
