@@ -12,9 +12,9 @@ Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
+BuildRequires:	libpcap-devel
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
-BuildRequires:	libpcap-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,17 +27,15 @@ u¿yciu zdalnego skanera zabezpieczeñ.
 
 %package devel
 Summary:	Nessus libraries development files
-Summary(pl):	Pliki dla deweloperów u¿ywaj±cych Nessusa
+Summary(pl):	Pliki dla programistów u¿ywaj±cych Nessusa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-Header files and libraries for developing applications that use
-Nessus.
+Header files for developing applications that use Nessus.
 
 %description devel -l pl
-Pliki nag³ówkowe i biblioteki konieczne do rozwoju aplikacji
-u¿ywaj±cych Nessusa.
+Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych Nessusa.
 
 %package static
 Summary:	Nessus static libraries
@@ -84,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 
