@@ -1,15 +1,13 @@
-# TODO:
-# - SECURITY: http://securitytracker.com/alerts/2004/Jul/1010758.html
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.0.10a
-Release:	2
+Version:	2.0.12
+Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
 Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
-# Source0-md5:	b0c1f429792b7517197bdeadb5f3ecb9
+# Source0-md5:	8f80ee53a2b73554b7ea5092d67f8426
 Patch0:		%{name}-nolibs.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.nessus.org/
