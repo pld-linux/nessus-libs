@@ -6,7 +6,7 @@
  
 -AC_HAVE_LIBRARY(resolv, LIBS="-lresolv $LIBS")
 +LIBRESOLV=""
-+AC_CHECK_FUNC(res_query, , [AC_CHECK_LIB(resolv, res_query, [LIBRESOLV="-lresolv"])])
++AC_CHECK_FUNC(res_query, , [AC_CHECK_FUNC(__res_query, , [AC_CHECK_LIB(resolv, res_query, [LIBRESOLV="-lresolv"], [AC_CHECK_LIB(resolv, __res_query, [LIBRESOLV="-lresolv"])])])])
 +AC_SUBST(LIBRESOLV)
  
  # These libraries break stuff under IRIX
@@ -15,7 +15,7 @@
 - AC_HAVE_LIBRARY(socket, [socket_lib="-lsocket";LIBS="-lsocket $LIBS";])
 - AC_HAVE_LIBRARY(nsl, [nsl_lib="-lnsl";LIBS="-lnsl $LIBS";])
 + AC_CHECK_FUNC(socket, , [AC_CHECK_LIB(socket, socket, [socket_lib="-lsocket";LIBS="-lsocket $LIBS";])])
-+ AC_CHECK_FUNC(inet_aton, , [AC_CHECK_LIB(nsl, inet_atoin, [nsl_lib="-lnsl";LIBS="-lnsl $LIBS";])])
++ AC_CHECK_FUNC(inet_aton, , [AC_CHECK_LIB(nsl, inet_aton, [nsl_lib="-lnsl";LIBS="-lnsl $LIBS";])])
  fi
  
  
