@@ -32,6 +32,8 @@ Summary:	Nessus libraries development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych Nessusa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	libpcap-devel
+Requires:	openssl-devel
 
 %description devel
 Header files for developing applications that use Nessus.
