@@ -55,6 +55,7 @@ Biblioteki statyczne Nessusa.
 %patch0 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %configure \
