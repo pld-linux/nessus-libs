@@ -12,6 +12,7 @@ Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libpcap-devel
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
@@ -54,7 +55,7 @@ Biblioteki statyczne Nessusa.
 %patch0 -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--disable-nessuspcap \
