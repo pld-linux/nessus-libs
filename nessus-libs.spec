@@ -4,7 +4,7 @@ Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
 Version:	2.0.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
@@ -18,6 +18,9 @@ BuildRequires:	libpcap-devel
 BuildRequires:	libtool
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# needed to get /var/lib/nessus instead of /var/nessus
+%define		_localstatedir	/var/lib
 
 %description
 Libraries for Nessus - a free, powerful, up-to-date and easy to use
@@ -76,6 +79,7 @@ Biblioteki statyczne Nessusa.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_localstatedir}/nessus
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -89,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%dir %{_localstatedir}/nessus
 
 %files devel
 %defattr(644,root,root,755)
