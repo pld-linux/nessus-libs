@@ -1,16 +1,15 @@
-#FIXME: desc/summary a w szczególno¶ci wersje pl ss±
-
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.0.8
-Release:	2
+Version:	2.0.10a
+Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
 Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
-# Source0-md5:	57364574d226e8b561aa635cf55a0823
+# Source0-md5:	b0c1f429792b7517197bdeadb5f3ecb9
 Patch0:		%{name}-nolibs.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -39,7 +38,7 @@ Ten pakiet zawiera biblioteki Nessusa.
 Summary:	Nessus libraries development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych Nessusa
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	libpcap-devel
 Requires:	openssl-devel
 
@@ -53,7 +52,7 @@ Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych Nessusa.
 Summary:	Nessus static libraries
 Summary(pl):	Biblioteki statyczne Nessusa
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Nessus static libraries.
@@ -63,7 +62,8 @@ Biblioteki statyczne Nessusa.
 
 %prep
 %setup -q -n nessus-libraries
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
