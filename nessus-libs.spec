@@ -3,12 +3,13 @@
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.0.4
+Version:	2.0.6a
 Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
 Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
+#Source0-md5:	8d2ad10fe0dd55fc21a4f42350ab0599
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
