@@ -1,0 +1,11 @@
+--- nessus-libraries/libnessus/Makefile.orig	2003-02-02 14:40:41.000000000 +0100
++++ nessus-libraries/libnessus/Makefile	2004-03-28 19:56:43.342109512 +0200
+@@ -90,7 +90,7 @@
+ snprintf.o : snprintf.c
+ 	$(LIBTOOL) $(CC) $(CIPHER) $(DEFS) $(INCLUDE) $(CFLAGS) -c snprintf.c	
+ libnessus.la: $(OBJS)
+-	$(LIBTOOL) $(CC) -o libnessus.la $(LO_OBJS) -rpath ${libdir} \
++	$(LIBTOOL) $(CC) -o libnessus.la $(LO_OBJS) -rpath ${libdir} -lpcap -lssl -lcrypto \
+ 	-version-info ${PACKAGE_VERSION}
+ 
+ install : libnessus.la
