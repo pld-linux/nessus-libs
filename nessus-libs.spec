@@ -26,6 +26,7 @@ u¿yciu zdalnego skanera zabezpieczeñ.
 Summary:	Nessus libraries development files
 Summary(pl):	Pliki dla deweloperów u¿ywaj±cych Nessusa
 Group:		Development/Libraries
+Requires:   %{name} = %{version}
 
 %description devel
 Header files and libraries for developing applications that use
@@ -39,6 +40,7 @@ u¿ywaj±cych Nessusa.
 Summary:	Nessus static libraries
 Summary(pl):	Biblioteki statyczne Nessusa
 Group:		Development/Libraries
+Requires:   %{name}-devel = %{version}
 
 %description static
 Nessus static libraries.
