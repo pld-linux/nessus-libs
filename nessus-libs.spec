@@ -60,7 +60,8 @@ aclocal
 %{__autoconf}
 %configure \
 	--disable-nessuspcap \
-	--enable-cipher
+	--enable-cipher \
+	--enable-openpty
 %{__make}
 
 %install
