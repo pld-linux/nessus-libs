@@ -1,0 +1,64 @@
+--- nessus-libraries/configure.in.orig	Wed Apr 16 19:58:28 2003
++++ nessus-libraries/configure.in	Wed Jul  2 09:44:29 2003
+@@ -73,13 +73,15 @@
+ 
+ dnl Check for extra libraries
+ 
+-AC_HAVE_LIBRARY(resolv, LIBS="-lresolv $LIBS")
++LIBRESOLV=""
++AC_CHECK_FUNC(res_query, , [AC_CHECK_LIB(resolv, res_query, [LIBRESOLV="-lresolv"])])
++AC_SUBST(LIBRESOLV)
+ 
+ # These libraries break stuff under IRIX
+ if  test "`uname`" != "IRIX" ;
+ then
+- AC_HAVE_LIBRARY(socket, [socket_lib="-lsocket";LIBS="-lsocket $LIBS";])
+- AC_HAVE_LIBRARY(nsl, [nsl_lib="-lnsl";LIBS="-lnsl $LIBS";])
++ AC_CHECK_FUNC(socket, , [AC_CHECK_LIB(socket, socket, [socket_lib="-lsocket";LIBS="-lsocket $LIBS";])])
++ AC_CHECK_FUNC(inet_aton, , [AC_CHECK_LIB(nsl, inet_atoin, [nsl_lib="-lnsl";LIBS="-lnsl $LIBS";])])
+ fi
+ 
+ 
+@@ -370,9 +372,10 @@
+ 
+ # disable openpty() upon request, only
+ if test x$USE_OPENPTY != xno -a x$USE_PTMX != xyes ; then
+-  AC_CHECK_LIB(util,openpty,LIBS="-lutil $LIBS")
++  LIBUTIL=""
++  AC_CHECK_LIB(util,openpty,LIBUTIL="-lutil")
+   save_LDFLAGS=$LDFLAGS
+-  LDFLAGS="$LDFLAGS $LIBS"
++  LDFLAGS="$LDFLAGS $LIBS $LIBUTIL"
+   AC_CHECK_FUNCS(openpty,FOUND_OPENPTY=yes)
+   LDFLAGS=$save_LDFLAGS
+   # undef the request for openpty as it is not available
+@@ -571,7 +574,7 @@
+ AC_SYS_LONG_FILE_NAMES
+ 
+ 
+-EXTRA=$LIBS
++EXTRA="$LIBS $LIBRESOLV"
+ 
+ case "$host" in
+   *-netbsd*)
+--- nessus-libraries/nessus.tmpl.in.orig	Mon Feb 17 15:52:01 2003
++++ nessus-libraries/nessus.tmpl.in	Wed Jul  2 09:53:28 2003
+@@ -69,6 +69,7 @@
+ # Your C compiler
+ CC=@CC@
+ LIBS=@LIBS@
++LIBRESOLV=@LIBRESOLV@
+ LIBTOOL=@LIBTOOL@
+ RANLIB=@RANLIB@
+ 
+--- nessus-libraries/libhosts_gatherer/Makefile.orig	Wed Jul  2 09:53:47 2003
++++ nessus-libraries/libhosts_gatherer/Makefile	Wed Jul  2 10:11:01 2003
+@@ -22,7 +22,7 @@
+ 	$(LIBTOOL) --finish $(DESTDIR)${libdir}
+ 	
+ libhosts_gatherer.la : $(OBJS)
+-	$(LIBTOOL) $(CC) -o libhosts_gatherer.la $(LO_OBJS) -rpath ${libdir} \
++	$(LIBTOOL) $(CC) -o libhosts_gatherer.la $(LO_OBJS) $(LIBRESOLV) -rpath ${libdir} \
+ 	-version-info ${PACKAGE_VERSION}
+ 	        
+ hg_utils.o : hg_utils.h hosts_gatherer.h hg_utils.c
