@@ -3,13 +3,13 @@
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.0.6a
+Version:	2.0.7
 Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
 Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
-#Source0-md5:	8d2ad10fe0dd55fc21a4f42350ab0599
+# Source0-md5:	dfb40d73c664937ab0405f29a2e3a603
 Patch0:		%{name}-nolibs.patch
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
@@ -24,8 +24,13 @@ Libraries for Nessus - a free, powerful, up-to-date and easy to use
 remote security scanner.
 
 %description -l pl
-Biblioteki Nessusa - wolnodostêpnego, potê¿nego, aktualnego i ³atwego
-w u¿yciu zdalnego skanera zabezpieczeñ.
+Celem projektu "Nessus" jest dostarczenie spo³eczno¶ci internetowej
+wolnodostêpnego, potê¿nego, aktualnego i ³atwego w u¿yciu zdalnego
+skanera bezpieczeñstwa (tzn. oprogramowania, które zdalnie
+przeprowadza audyt podanej sieci i sprawdza, czy ¼li ludzie mog± siê
+do niej w³amaæ lub jej nadu¿yæ w jaki¶ sposób).
+
+Ten pakiet zawiera biblioteki Nessusa.
 
 %package devel
 Summary:	Nessus libraries development files
