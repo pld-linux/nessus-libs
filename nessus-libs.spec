@@ -23,8 +23,8 @@ Libraries for Nessus - a free, powerful, up-to-date and easy to use
 remote security scanner.
 
 %description -l pl
-Biblioteki dla Nessusa - wolnego, potê¿nego, aktualnego i ³atwego w
-u¿yciu zdalnego skanera zabezpieczeñ.
+Biblioteki Nessusa - wolnodostêpnego, potê¿nego, aktualnego i ³atwego
+w u¿yciu zdalnego skanera zabezpieczeñ.
 
 %package devel
 Summary:	Nessus libraries development files
@@ -67,9 +67,9 @@ Biblioteki statyczne Nessusa.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,16 +79,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
-#%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_bindir}/nessus-config
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%{_includedir}/*
+%{_mandir}/man1/nessus-config.1*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/lib*.a
