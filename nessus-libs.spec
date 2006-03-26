@@ -1,13 +1,13 @@
 Summary:	Nessus libraries
 Summary(pl):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.2.5
+Version:	2.2.7
 Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
 Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
-# Source0-md5:	a26a31ee7d8e82511e4ba3954ab1db24
+# Source0-md5:	740d9f2d97c495a52663a15a0fe5e6cd
 Patch0:		%{name}-nolibs.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.nessus.org/
