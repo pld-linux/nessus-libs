@@ -1,5 +1,5 @@
 Summary:	Nessus libraries
-Summary(pl):	Biblioteki Nessus
+Summary(pl.UTF-8):   Biblioteki Nessus
 Name:		nessus-libs
 Version:	2.2.7
 Release:	1
@@ -25,18 +25,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries for Nessus - a free, powerful, up-to-date and easy to use
 remote security scanner.
 
-%description -l pl
-Celem projektu "Nessus" jest dostarczenie spo³eczno¶ci internetowej
-wolnodostêpnego, potê¿nego, aktualnego i ³atwego w u¿yciu zdalnego
-skanera bezpieczeñstwa (tzn. oprogramowania, które zdalnie
-przeprowadza audyt podanej sieci i sprawdza, czy ¼li ludzie mog± siê
-do niej w³amaæ lub jej nadu¿yæ w jaki¶ sposób).
+%description -l pl.UTF-8
+Celem projektu "Nessus" jest dostarczenie spoÅ‚ecznoÅ›ci internetowej
+wolnodostÄ™pnego, potÄ™Å¼nego, aktualnego i Å‚atwego w uÅ¼yciu zdalnego
+skanera bezpieczeÅ„stwa (tzn. oprogramowania, ktÃ³re zdalnie
+przeprowadza audyt podanej sieci i sprawdza, czy Åºli ludzie mogÄ… siÄ™
+do niej wÅ‚amaÄ‡ lub jej naduÅ¼yÄ‡ w jakiÅ› sposÃ³b).
 
 Ten pakiet zawiera biblioteki Nessusa.
 
 %package devel
 Summary:	Nessus libraries development files
-Summary(pl):	Pliki dla programistów u¿ywaj±cych Nessusa
+Summary(pl.UTF-8):   Pliki dla programistÃ³w uÅ¼ywajÄ…cych Nessusa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libpcap-devel
@@ -45,19 +45,19 @@ Requires:	openssl-devel
 %description devel
 Header files for developing applications that use Nessus.
 
-%description devel -l pl
-Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych Nessusa.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe konieczne do rozwoju aplikacji uÅ¼ywajÄ…cych Nessusa.
 
 %package static
 Summary:	Nessus static libraries
-Summary(pl):	Biblioteki statyczne Nessusa
+Summary(pl.UTF-8):   Biblioteki statyczne Nessusa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Nessus static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne Nessusa.
 
 %prep
