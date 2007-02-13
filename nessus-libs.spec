@@ -1,5 +1,5 @@
 Summary:	Nessus libraries
-Summary(pl.UTF-8):   Biblioteki Nessus
+Summary(pl.UTF-8):	Biblioteki Nessus
 Name:		nessus-libs
 Version:	2.2.7
 Release:	1
@@ -36,7 +36,7 @@ Ten pakiet zawiera biblioteki Nessusa.
 
 %package devel
 Summary:	Nessus libraries development files
-Summary(pl.UTF-8):   Pliki dla programistów używających Nessusa
+Summary(pl.UTF-8):	Pliki dla programistów używających Nessusa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libpcap-devel
@@ -50,7 +50,7 @@ Pliki nagłówkowe konieczne do rozwoju aplikacji używających Nessusa.
 
 %package static
 Summary:	Nessus static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne Nessusa
+Summary(pl.UTF-8):	Biblioteki statyczne Nessusa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
