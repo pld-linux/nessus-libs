@@ -2,7 +2,7 @@ Summary:	Nessus libraries
 Summary(pl.UTF-8):	Biblioteki Nessus
 Name:		nessus-libs
 Version:	2.2.7
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
