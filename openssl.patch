@@ -1,0 +1,20 @@
+--- nessus-libraries/libnessus/network.c~	2008-03-12 09:09:06.000000000 +0100
++++ nessus-libraries/libnessus/network.c	2018-09-22 17:04:41.635288719 +0200
+@@ -532,15 +532,11 @@ open_SSL_connection(fp, timeout, cert, k
+ 
+   switch (fp->transport)
+     {
+-    case NESSUS_ENCAPS_SSLv2:
+-      fp->ssl_mt = SSLv2_client_method();
+-      break;
+-    case NESSUS_ENCAPS_SSLv3:
+-      fp->ssl_mt = SSLv3_client_method();
+-      break;
+     case NESSUS_ENCAPS_TLSv1:
+       fp->ssl_mt = TLSv1_client_method();
+       break;
++    case NESSUS_ENCAPS_SSLv2:
++    case NESSUS_ENCAPS_SSLv3:
+     case NESSUS_ENCAPS_SSLv23:	/* Compatibility mode */
+       fp->ssl_mt = SSLv23_client_method();
+       break;

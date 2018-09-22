@@ -1,16 +1,18 @@
 Summary:	Nessus libraries
 Summary(pl.UTF-8):	Biblioteki Nessus
 Name:		nessus-libs
-Version:	2.2.7
-Release:	6
+Version:	2.2.11
+Release:	1
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
-Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
-# Source0-md5:	740d9f2d97c495a52663a15a0fe5e6cd
+# Source0:	ftp://ftp.nessus.org/pub/nessus/nessus-%{version}/src/nessus-libraries-%{version}.tar.gz
+Source0:	nessus-libraries-%{version}.tar.gz
+# Source0-md5:	c1180bec3a7f1b78d4d881f9a73e99bc
 Patch0:		%{name}-nolibs.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-libtool.patch
+Patch3:		openssl.patch
 URL:		http://www.nessus.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -66,6 +68,7 @@ Biblioteki statyczne Nessusa.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
@@ -94,6 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_localstatedir}/nessus
 
