@@ -2,7 +2,7 @@ Summary:	Nessus libraries
 Summary(pl.UTF-8):	Biblioteki Nessus
 Name:		nessus-libs
 Version:	2.2.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking
 Vendor:		Nessus Project
@@ -80,7 +80,9 @@ Biblioteki statyczne Nessusa.
 	--enable-openpty \
 	--enable-bpf-sharing
 
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags}" \
+	LIBRESOLV="-lresolv"
 
 %install
 rm -rf $RPM_BUILD_ROOT

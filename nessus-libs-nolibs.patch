@@ -1,6 +1,7 @@
---- nessus-libraries/configure.in.orig	Wed Apr 16 19:58:28 2003
-+++ nessus-libraries/configure.in	Wed Jul  2 09:44:29 2003
-@@ -73,13 +73,15 @@
+diff -urNp -x '*.orig' nessus-libraries.org/configure.in nessus-libraries/configure.in
+--- nessus-libraries.org/configure.in	2005-10-27 15:29:18.000000000 +0200
++++ nessus-libraries/configure.in	2021-09-29 22:27:43.770919561 +0200
+@@ -73,13 +73,15 @@ test -z "$GCC" || CWARN="-Wall"
  
  dnl Check for extra libraries
  
@@ -19,7 +20,7 @@
  fi
  
  
-@@ -370,9 +372,10 @@
+@@ -381,9 +383,10 @@ fi
  
  # disable openpty() upon request, only
  if test x$USE_OPENPTY != xno -a x$USE_PTMX != xyes ; then
@@ -32,7 +33,7 @@
    AC_CHECK_FUNCS(openpty,FOUND_OPENPTY=yes)
    LDFLAGS=$save_LDFLAGS
    # undef the request for openpty as it is not available
-@@ -571,7 +574,7 @@
+@@ -632,7 +635,7 @@ dnl Define several paths
  AC_SYS_LONG_FILE_NAMES
  
  
@@ -40,20 +41,11 @@
 +EXTRA="$LIBS $LIBRESOLV"
  
  case "$host" in
-   *-netbsd*)
---- nessus-libraries/nessus.tmpl.in.orig	Mon Feb 17 15:52:01 2003
-+++ nessus-libraries/nessus.tmpl.in	Wed Jul  2 09:53:28 2003
-@@ -69,6 +69,7 @@
- # Your C compiler
- CC=@CC@
- LIBS=@LIBS@
-+LIBRESOLV=@LIBRESOLV@
- LIBTOOL=@LIBTOOL@
- RANLIB=@RANLIB@
- 
---- nessus-libraries/libhosts_gatherer/Makefile.orig	Wed Jul  2 09:53:47 2003
-+++ nessus-libraries/libhosts_gatherer/Makefile	Wed Jul  2 10:11:01 2003
-@@ -22,7 +22,7 @@
+   *-darwin*)
+diff -urNp -x '*.orig' nessus-libraries.org/libhosts_gatherer/Makefile nessus-libraries/libhosts_gatherer/Makefile
+--- nessus-libraries.org/libhosts_gatherer/Makefile	2003-04-07 04:06:49.000000000 +0200
++++ nessus-libraries/libhosts_gatherer/Makefile	2021-09-29 22:27:43.774252887 +0200
+@@ -22,7 +22,7 @@ install : libhosts_gatherer.la
  	$(LIBTOOL) --finish $(DESTDIR)${libdir}
  	
  libhosts_gatherer.la : $(OBJS)
@@ -62,3 +54,14 @@
  	-version-info ${PACKAGE_VERSION}
  	        
  hg_utils.o : hg_utils.h hosts_gatherer.h hg_utils.c
+diff -urNp -x '*.orig' nessus-libraries.org/nessus.tmpl.in nessus-libraries/nessus.tmpl.in
+--- nessus-libraries.org/nessus.tmpl.in	2003-02-17 15:52:01.000000000 +0100
++++ nessus-libraries/nessus.tmpl.in	2021-09-29 22:27:43.770919561 +0200
+@@ -69,6 +69,7 @@ LDFLAGS=
+ # Your C compiler
+ CC=@CC@
+ LIBS=@LIBS@
++LIBRESOLV=@LIBRESOLV@
+ LIBTOOL=@LIBTOOL@
+ RANLIB=@RANLIB@
+ 
